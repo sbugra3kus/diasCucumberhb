@@ -34,41 +34,30 @@ Raporlama
 Test sonuçları, target/cucumber-reports dizininde yer alan HTML raporlarında bulunabilir.
 
 Proje Yapısı
-src/test/java: Test dosyalarının bulunduğu dizin.
+pom.xml: Maven bağımlılıklarını ve proje yapılandırmasını tanımlayan dosya. Bu dosya, projede kullanacağınız kütüphaneleri ve yapılandırmaları içerir.
 
-src/main/java: Ana uygulama dosyalarının bulunduğu dizin.
+README.md: Proje hakkında genel bilgi, kurulum talimatları, kullanım kılavuzu ve katkıda bulunma rehberi içeren dosya.
 
-pom.xml: Maven proje yapılandırma dosyası.
+src/main/java
+com.example.yourapp.Main.java: Ana uygulama sınıfı. Genellikle uygulamanın başlangıç noktasını içerir.
 
+com.example.yourapp.utils.Helper.java: Yardımcı fonksiyonları barındıran sınıf. Projede tekrar kullanılabilir genel işlevleri içerir.
 
-diasCucumberhb
-├── pom.xml
-├── README.md
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── example
-    │   │           └── yourapp
-    │   │               ├── Main.java
-    │   │               └── utils
-    │   │                   └── Helper.java
-    │   └── resources
-    │       └── application.properties
-    └── test
-        ├── java
-        │   └── com
-        │       └── example
-        │           └── yourapp
-        │               ├── Runner.java
-        │               ├── stepdefs
-        │               │   ├── StepDefinitions.java
-        │               │   └── hooks
-        │               │       └── Hooks.java
-        │               └── pages
-        │                   ├── HomePage.java
-        │                   └── LoginPage.java
-        └── resources
-            ├── features
-            │   └── login.feature
-            └── testng.xml
+src/main/resources
+application.properties: Uygulama yapılandırma dosyası. Uygulama ayarları, bağlantı bilgileri ve diğer yapılandırma detaylarını içerir.
+
+src/test/java
+com.example.yourapp.Runner.java: Cucumber testlerini çalıştırmak için kullanılan test çalıştırıcısı sınıfı. Test senaryolarının hangi dosyalardan alınacağını ve nasıl çalıştırılacağını tanımlar.
+
+com.example.yourapp.stepdefs.StepDefinitions.java: Test adımlarını tanımlayan sınıf. Cucumber senaryolarında kullanılan adımları içerir.
+
+com.example.yourapp.stepdefs.hooks.Hooks.java: Test öncesi ve sonrası işlemleri tanımlayan sınıf. Genellikle testlerin başında ve sonunda çalışacak kodları içerir.
+
+com.example.yourapp.pages.HomePage.java: Ana sayfa ile ilgili web elemanlarını ve işlemleri içeren sınıf.
+
+com.example.yourapp.pages.LoginPage.java: Giriş sayfası ile ilgili web elemanlarını ve işlemleri içeren sınıf.
+
+src/test/resources
+features/login.feature: Cucumber senaryolarını içeren özellik dosyası. Test senaryoları burada tanımlanır.
+
+testng.xml:TestNG yapılandırma dosyası. Paralel test çalıştırma, gruplama ve diğer TestNG yapılandırmalarını içerir.
