@@ -10,8 +10,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
+     // Default URL
     public static WebDriver getDriver(String browserType) {
+        String baseUrl = System.getProperty("baseUrl", "https://www.hepsiburada.com/");
         if (driver.get() == null) {  // Eğer thread'deki driver null ise
             switch (browserType.toLowerCase()) {
                 case "chrome":
@@ -34,6 +35,7 @@ public class DriverFactory {
             }
 
             driver.get().manage().window().maximize();
+            driver.get();
         }
         return driver.get();
     }

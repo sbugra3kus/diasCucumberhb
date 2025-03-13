@@ -21,7 +21,7 @@ public class Hooks {
     @Before
     public void setUp(Scenario scenario) {
         String browser = System.getProperty("browser", "chrome");  // Default to Chrome
-
+        String baseUrl = System.getProperty("baseUrl", "https://www.hepsiburada.com/");  // Default URL
         switch (browser.toLowerCase()) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
@@ -38,6 +38,7 @@ public class Hooks {
         }
 
         webDriver.manage().window().maximize();
+        webDriver.get(baseUrl);
     }
 
     @After

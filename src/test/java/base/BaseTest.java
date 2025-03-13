@@ -46,11 +46,11 @@ public class BaseTest {
     @Before
     public void setUp() {
         String browser = System.getProperty("BROWSER");
+        String baseUrl = System.getProperty("baseUrl", "https://www.hepsiburada.com/");  // Default URL
         if (browser == null || browser.isEmpty()) {
             System.out.println("Browser değeri belirtilmedi, varsayılan olarak CHROME kullanılıyor.");
             browser = "CHROME";  // Varsayılan değer
         }
-
         BrowserType browserType = BrowserType.valueOf(browser.toUpperCase());
         logger.info("---Test is starting---");
         switch (browserType) {
@@ -77,6 +77,7 @@ public class BaseTest {
         }
         logger.info(browser + " driver is running");
         webDriver.manage().window().maximize();
+        webDriver.get(baseUrl);
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
