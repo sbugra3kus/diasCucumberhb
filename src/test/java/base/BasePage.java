@@ -16,8 +16,9 @@ public class BasePage {
     private WebDriver webDriver = BaseTest.getWebDriver();
     WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
     String productPrice;
+
     public void navigateUrl(String url){
-        webDriver.get(url);
+        webDriver.get(HOME_PAGE_URL);
     }
     public WebElement findElement(By by){
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));

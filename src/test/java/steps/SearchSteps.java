@@ -14,8 +14,7 @@ import static constants.HepsiburadaSearchConstants.*;
 public class SearchSteps extends BasePage {
     private final Logger logger = LoggerFactory.getLogger(SearchSteps.class);
 
-    ConfigReader configReader = new ConfigReader("config.properties");
-    String key;
+
 
 
     @Given("Anasayfa Acilir")

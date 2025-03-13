@@ -20,6 +20,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeClass;
+import utils.DriverFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +37,11 @@ public class BaseTest {
     @Before
     public void before(Scenario scenario) {
         this.scenario = scenario;
+    }
+    @BeforeClass
+    public void setup() {
+        String browser = System.getProperty("browser", "chrome");  // Varsayılan olarak chrome
+        DriverFactory.getDriver(browser);
     }
     @Before
     public void setUp() {
